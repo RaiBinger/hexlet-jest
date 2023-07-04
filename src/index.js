@@ -13,6 +13,22 @@ export const wrong1 = (coll = [], ...values) => {
   return result;
 };
 
-console.log(_.without([3, 8, 9, 8, 10], 8, 10));
+// console.log(_.without([3, 8, 9, 8, 10], 8, 10));
 
-console.log(wrong1([3, 8, 9, 8, 10], 8, 10));
+// console.log(wrong1([3, 8, 9, 8, 10], 8, 10));
+
+const object = { a: [{ b: { c: 3 } }] };
+// console.log(JSON.stringify(object));
+ 
+_.set(object, 'a[0].b.c', 4);
+ 
+_.set(object, ['x', '0', 'y', 'z'], 5);
+
+// _.set(object, 'a[0].b[0].c[0]', 6);
+
+const wrong3 = (obj, path, value) => {
+  _.set(obj, path, value);
+  obj.key = 'value';
+  return obj;
+};
+
